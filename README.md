@@ -27,5 +27,8 @@ Finished in 0.436237s, 25.2157 runs/s, 48.1390 assertions/s.
 
 11 runs, 21 assertions, 0 failures, 0 errors, 0 skips
 ```
+7. See tests re:
 
+* the last N events for an org
+* the last N events for a specific host within an org
 
