@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  constraints subdomain: 'api' do
+    get  'organizations/:organization_id/events', to: 'events#index'
+    post 'organizations/:organization_id/events', to: 'events#create'
+  end
 end

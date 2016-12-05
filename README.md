@@ -1,24 +1,31 @@
-# Setupgit int
+# Setting up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to setup nr1 after you have cloned this repo:
 
-Things you may want to cover:
+1. **set a new rails secret.** Copy `config/secrets.yml.example` to `config/secrets.yml`, and in `config/secrets.yml` run `rails secret`, copy and paste to development and testing.
 
-* Ruby version
+2. **config to your instance of postgres** Edit copy `config/database.yml.example` to `config/database.yml`. If you use the [Postgres App](http://postgresapp.com/) on mac os, you are good to go. If not, change values to what works for you.
 
-* System dependencies
+3. **Run bundler:** `bundle exec bundle`
 
-* Configuration
+4. **Initialize your postgres db:** `bundle exec rake db:setup` or if your instance of Postges does not like db:setup, `bundle exec rake db:create` and then `bundle exec rake db:migrate`and then `bundle exec rake db:seed`.
 
-* Database creation
+5. **Run the application**: `rails s`
 
-* Database initialization
+6. **Test the application**: `bundle exec rake test`
+Output should look like:
 
-* How to run the test suite
+```
+Bobs-iMac-3:nr1 bobwalsh$ bundle exec rake test
+Run options: --seed 32772
 
-* Services (job queues, cache servers, search engines, etc.)
+# Running:
 
-* Deployment instructions
+...........
 
-* ...
+Finished in 0.436237s, 25.2157 runs/s, 48.1390 assertions/s.
+
+11 runs, 21 assertions, 0 failures, 0 errors, 0 skips
+```
+
+

@@ -3,8 +3,15 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  def json(response)
+    JSON.parse(response.body, symbolize_names: true)
+  end
 
-  # Add more helper methods to be used by all tests here...
+  def descriptions(events)
+    events.collect { |e| e[:description] }
+  end
+
+  def extract_descriptions(events)
+    descriptions(events).to_s
+  end
 end
